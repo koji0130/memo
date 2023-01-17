@@ -47,7 +47,7 @@ class LoginController extends Controller
     {
         $userData = $request -> only('mail_address', 'password');
         if (Auth::attempt($userData)) {
-            return redirect('/top');
+            return redirect('/dashboard');
         }else{
             return redirect('/login')->with('flash_message', 'name or password is incorrect');
         }
