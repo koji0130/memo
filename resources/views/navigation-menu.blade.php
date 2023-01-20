@@ -17,8 +17,13 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('test') }}" :active="request()->routeIs('test')">
+                        {{ __('テスト用') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('top') }}" :active="request()->routeIs('top')">
-                        {{ __('top') }}
+                        {{ __('LINEみたいなやつ') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -114,7 +119,7 @@
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}" x-data>
+                            <form method="GET" action="{{ route('logout') }}" x-data>
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"

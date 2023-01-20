@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Livewireサンプル
+            LINE
         </h2>
+        <h3>ユーザー検索</h3>
+        <form action="/search">
+            @csrf
+            <input type="text" name="search" placeholder="ユーザー名で検索">
+        </form>
     </x-slot>
 
     <div class="py-12">
