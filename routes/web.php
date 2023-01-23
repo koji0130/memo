@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TopController;
+use App\Http\Livewire\BookIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/dashboard', [TopController::class,'show'])->name('dashboard');
     Route::get('/test', [TopController::class,'test'])->name('test');
     Route::get('/top', [TopController::class,'top'])->name('top');
+
+    Route::get('/books',BookIndex::class)->name('books.index');
 });
