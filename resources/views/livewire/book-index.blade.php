@@ -14,7 +14,7 @@
                         <th class="p-4 text-gray-500 text-left">Title</th>
                         <th class="p-4 text-gray-500 text-left">Image</th>
                         <th class="p-4 text-gray-500 text-left">Price</th>
-                        <th class="p-4 text-gray-500 text-left">Descriptoin</th>
+                        <th class="p-4 text-gray-500 text-left">Description</th>
                         <th class="p-4 text-gray-500 text-left">Edit</th>
                     </tr>
                 </thead>

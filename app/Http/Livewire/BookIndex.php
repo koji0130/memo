@@ -103,15 +103,22 @@ class BookIndex extends Component
         //     ->orderBy('id','DESC')->paginate(3),
         // ]);
         if( $this->search!="" ){
-            return view('livewire.book-index',[
-                'books' => Book::where('title','like','%' .$this->search. '%')
-                ->orderBy('id','ASC')->paginate(3),
-            ]);
+            // return view('livewire.book-index',[
+            //     'books' => Book::where('title','like','%' .$this->search. '%')
+            //     ->orderBy('id','ASC')->paginate(3),
+            // ]);
+            $books = Book::where('title','like','%' . $this->search. '%')
+            ->orderBy('id','ASC')->paginate(3);
+
+            return view('livewire.book-index',compact('books'));
         }else{
-            return view('livewire.book-index',[
-                'books' => Book::select('id','title','price','image','description')
-                ->orderBy('id','ASC')->paginate(3),
-                ]);
+            // return view('livewire.book-index',[
+            //     'books' => Book::select('id','title','price','image','description')
+            //     ->orderBy('id','ASC')->paginate(3),
+            //     ]);
+            $books = Book::select('id','title','price','image','description')
+            ->orderBy('id','ASC')->paginate(3);
+            return view('livewire.book-index',compact('books'));
         }
     }
 }
