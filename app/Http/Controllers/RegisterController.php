@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\Users\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -61,7 +61,6 @@ class RegisterController extends Controller
             $old_day = $request->old_day;
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
-            $subjects = $request->subject;
 
             $user_get = User::create([
                 'over_name' => $request->over_name,
@@ -71,15 +70,11 @@ class RegisterController extends Controller
                 'mail_address' => $request->mail_address,
                 'sex' => $request->sex,
                 'birth_day' => $birth_day,
-                'role' => $request->role,
                 'password' => bcrypt($request->password)
             ]);
             $user = User::findOrFail($user_get->id);
-            if ($user_get->role == 4 ) {
-                $user->subjects()->attach($subjects);
-            }
             DB::commit();
-            return view('auth.login.login');
+            return view('auth.login');
         }catch(\Exception $e){
             DB::rollback();
             return redirect()->route('loginView');
