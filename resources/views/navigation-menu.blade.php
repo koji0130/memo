@@ -18,7 +18,7 @@
                     <x-jet-nav-link href="{{ route('test') }}" :active="request()->routeIs('test')">
                         {{ __('テスト用') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('top') }}" :active="request()->routeIs('top')">
+                    <x-jet-nav-link href="{{ route('search.index') }}" :active="request()->routeIs('top')">
                         {{ __('LINEみたいなやつ') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('books.index') }}" :active="request()->routeIs('books.index')">

@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TopController;
 use App\Http\Livewire\BookIndex;
+use App\Http\Livewire\Search;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [LoginController::class,'logout'])->name('logout');
     Route::get('/dashboard', [TopController::class,'show'])->name('dashboard');
     Route::get('/test', [TopController::class,'test'])->name('test');
-    Route::get('/top', [TopController::class,'top'])->name('top');
 
     Route::get('/books',BookIndex::class)->name('books.index');
+    Route::get('/top',Search::class)->name('search.index');
 });
